@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // make sure axios is installed: npm install axios
+import { useNavigate } from "react-router-dom";
+
 
 // ✅ Component that displays the table
 const ListEmployeeComponent = ({ employees }: { employees: any[] }) => {
+
+    const navigator = useNavigate();
+
+function addNewEmployee(){
+    navigator('add-employee')
+}
+
   return (
     <div className="container">
       <div className="card">
         <div className="card-header bg-primary">
           <h2>List of Employees</h2>
+          <button className='btn btn-success mb-2' onClick={addNewEmployee}>Add Employee</button>
         </div>
         <div className="card-body">
           <table style={{ borderCollapse: "collapse", width: "100%" }}>
